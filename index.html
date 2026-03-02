@@ -3,149 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lined — The new messaging app.</title>
+    <title>Lined — The New Messaging App</title>
     
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,ital,wght@8..60,0,400;8..60,0,500;8..60,1,400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { font-family: 'Inter', sans-serif; }
-        body { background-color: #000; color: #fff; -webkit-font-smoothing: antialiased; }
+        body { 
+            background-color: #000000; 
+            color: #ffffff; 
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
         .serif { font-family: 'Source Serif 4', serif; }
-
-        /* The "Resend Glow" - a very faint, large radial gradient */
-        .bg-glow {
-            background: radial-gradient(85% 120% at 50% 10%, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0) 100%);
+        
+        .glow-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% -10%, #1a1a1a 0%, #000 70%);
+            z-index: -1;
         }
 
-        .nav-text { color: #8e8e8e; font-size: 14px; transition: color 0.2s; }
-        .nav-text:hover { color: #fff; }
-
-        .btn-primary {
+        .btn-white {
             background: #fff;
             color: #000;
-            padding: 7px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
             border-radius: 6px;
-            font-size: 13.5px;
-            font-weight: 500;
         }
 
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            line-height: 0.92;
-            letter-spacing: -0.04em;
-        }
-
-        .code-container {
+        .code-card {
             background: #050505;
-            border: 1px solid #1a1a1a;
-            border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid #141414;
+            border-radius: 10px;
         }
 
-        .token-purple { color: #c084fc; }
-        .token-gray { color: #52525b; }
-        .token-green { color: #4ade80; }
-        
-        .tab-active {
-            border-bottom: 1px solid #fff;
-            color: #fff;
-        }
+        .tok-k { color: #a78bfa; }
+        .tok-s { color: #4ade80; }
     </style>
 </head>
-<body class="bg-glow">
+<body>
+    <div class="glow-overlay"></div>
 
-    <nav class="flex items-center justify-between px-10 py-5 max-w-[1400px] mx-auto sticky top-0 bg-black/50 backdrop-blur-md z-50">
-        <div class="flex items-center gap-10">
-            <svg width="28" height="28" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M208 128L128 208L48 128L128 48L208 128Z" fill="white"/>
-            </svg>
-            <div class="hidden lg:flex gap-6">
-                <a href="#" class="nav-text">Features</a>
-                <a href="#" class="nav-text">Company</a>
-                <a href="#" class="nav-text">Resources</a>
-                <a href="#" class="nav-text">Docs</a>
-                <a href="#" class="nav-text">Pricing</a>
-            </div>
+    <nav class="flex items-center justify-between px-8 py-8 max-w-7xl mx-auto">
+        <div class="flex items-center gap-4">
+            <div class="w-2 h-6 bg-white"></div>
+            <span class="text-xl font-bold tracking-tighter">LINED</span>
         </div>
-        <div class="flex items-center gap-6">
-            <a href="#" class="nav-text">Log In</a>
-            <a href="#" class="btn-primary">Get Started</a>
+        <div class="flex items-center gap-8">
+            <a href="https://github.com/linedhq/Lined" class="text-[13px] text-zinc-500 hover:text-white transition">GitHub</a>
+            <a href="YOUR_EXE_LINK_HERE" class="btn-white">Download</a>
         </div>
     </nav>
 
-    <header class="max-w-[1400px] mx-auto px-10 pt-32 pb-48">
+    <header class="max-w-7xl mx-auto px-8 pt-24 pb-40">
         <div class="max-w-3xl">
-            <h1 class="serif hero-title mb-10">
-                Chat for<br/><span class="text-[#666]">developers</span>
+            <h1 class="serif text-[clamp(50px,8vw,90px)] leading-[0.9] tracking-tight mb-8">
+                The Discord clone<br/><span class="text-zinc-500">for builders.</span>
             </h1>
-            
-            <p class="text-[#888] text-xl mb-12 leading-relaxed max-w-lg">
-                The high-performance Discord alternative. Built with a clean design.
+            <p class="text-zinc-400 text-xl leading-relaxed mb-10 max-w-lg">
+                A high-performance communication tool. No bloat, no tracking, just a clean UI, no messy things.
             </p>
-
-            <div class="flex items-center gap-6">
-                <a href="YOUR_EXE_LINK" class="bg-[#111] hover:bg-[#181818] border border-[#222] px-6 py-3 rounded-lg text-sm font-medium transition duration-200">
-                    Download for Windows
+            <div class="flex items-center gap-4">
+                <a href="YOUR_EXE_LINK_HERE" class="bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold hover:bg-zinc-200 transition">
+                    Download .exe
                 </a>
-                <a href="https://github.com/linedhq/Lined" class="text-zinc-500 hover:text-white transition text-sm font-medium">
-                    Documentation &rarr;
+                <a href="https://github.com/linedhq/Lined" class="text-zinc-500 hover:text-white text-sm font-medium px-4 py-3 transition">
+                    View Source Code
                 </a>
             </div>
         </div>
     </header>
 
-    <section class="max-w-[1400px] mx-auto px-10 py-32 border-t border-[#111]">
-        <div class="text-center mb-20">
-            <div class="w-16 h-16 bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl mx-auto mb-8 flex items-center justify-center shadow-inner">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h2 class="text-[44px] font-medium tracking-tight mb-4">Integrate <span class="serif italic font-normal text-purple-400/80">tonight</span></h2>
-            <p class="text-[#666] max-w-md mx-auto text-lg leading-relaxed">
-                A simple, elegant interface so you can start talking in minutes, no messy stuff.
+    <section class="border-t border-zinc-900 bg-black py-32">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+            <h2 class="text-4xl font-medium tracking-tight mb-6">
+                Simple <span class="serif italic font-normal text-purple-400">by design</span>
+            </h2>
+            <p class="text-zinc-500 text-lg mb-16 max-w-md mx-auto">
+                Built with a modern tech stack to ensure the fastest possible chat experience.
             </p>
-        </div>
 
-        <div class="max-w-4xl mx-auto code-container">
-            <div class="flex items-center gap-6 px-6 py-3 border-b border-[#111] overflow-x-auto no-scrollbar">
-                <span class="text-[12px] font-medium text-white pb-3 mt-3 tab-active">Desktop.js</span>
-                <span class="text-[12px] font-medium text-zinc-500 pb-3 mt-3">Mobile.swift</span>
-                <span class="text-[12px] font-medium text-zinc-500 pb-3 mt-3">API.py</span>
-                <div class="ml-auto hidden sm:block">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#52525b" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <div class="code-card text-left">
+                <div class="flex items-center gap-3 px-6 py-4 border-b border-zinc-900">
+                    <div class="w-3 h-3 rounded-full bg-zinc-800"></div>
+                    <span class="text-[12px] font-medium text-zinc-500">lined-app-config.json</span>
                 </div>
-            </div>
-            <div class="p-8 font-mono text-[14px] leading-[1.8] overflow-x-auto">
-                <div class="flex gap-6">
-                    <div class="text-zinc-800 text-right select-none">1<br>2<br>3<br>4<br>5<br>6<br>7</div>
-                    <div>
-                        <p><span class="token-purple">import</span> { Lined } <span class="token-purple">from</span> <span class="token-green">'lined'</span>;</p>
-                        <p><span class="token-purple">const</span> app = <span class="token-purple">new</span> Lined(<span class="token-green">'lined_sk_12345'</span>);</p>
-                        <p>&nbsp;</p>
-                        <p>app.<span class="token-purple">connect</span>({</p>
-                        <p>&nbsp;&nbsp;server: <span class="token-green">'lined-hq'</span>,</p>
-                        <p>&nbsp;&nbsp;token: <span class="token-green">'secure_session_token'</span></p>
-                        <p>});</p>
-                    </div>
+                <div class="p-8 font-mono text-[14px] leading-relaxed">
+                    {<br>
+                    &nbsp;&nbsp;<span class="tok-k">"app_name"</span>: <span class="tok-s">"Lined"</span>,<br>
+                    &nbsp;&nbsp;<span class="tok-k">"version"</span>: <span class="tok-s">"0.1.0-alpha"</span>,<br>
+                    &nbsp;&nbsp;<span class="tok-k">"license"</span>: <span class="tok-s">"MIT"</span>,<br>
+                    &nbsp;&nbsp;<span class="tok-k">"features"</span>: [<span class="tok-s">"Direct Messages"</span>, <span class="tok-s">"Guilds"</span>, <span class="tok-s">"Speed"</span>]<br>
+                    }
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-24 border-t border-[#111] px-10">
-        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex items-center gap-4">
-                <span class="text-white font-bold tracking-tighter">LINED</span>
-                <span class="text-zinc-700">/</span>
-                <span class="text-zinc-500 text-sm">© 2026 Linedhq Inc.</span>
-            </div>
-            <div class="flex gap-8">
-                <a href="#" class="nav-text underline underline-offset-4">Twitter</a>
-                <a href="https://github.com/linedhq/Lined" class="nav-text underline underline-offset-4">GitHub</a>
-            </div>
-        </div>
+    <footer class="py-20 border-t border-zinc-900 text-center text-zinc-600 text-[12px]">
+        &copy; 2026 Linedhq &bull; <a href="https://github.com/linedhq/Lined" class="hover:text-white">GitHub</a>
     </footer>
-
 </body>
 </html>
