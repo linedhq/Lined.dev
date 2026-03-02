@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lined — The New Messaging App</title>
+    <title>Lined</title>
     
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
@@ -12,100 +12,156 @@
     <style>
         :root { font-family: 'Inter', sans-serif; }
         body { 
-            background-color: #000000; 
-            color: #ffffff; 
+            background-color: #000; 
+            color: #fff; 
             margin: 0;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         .serif { font-family: 'Source Serif 4', serif; }
-        
-        .glow-overlay {
+
+        /* The Animated Light Beam */
+        .beam {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 50% -10%, #1a1a1a 0%, #000 70%);
-            z-index: -1;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            animation: sweep 8s infinite;
         }
+
+        @keyframes sweep {
+            0% { transform: translateX(-100%) rotate(-45deg); top: 0; }
+            100% { transform: translateX(200%) rotate(-45deg); top: 100%; }
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #000 60%);
+        }
+
+        .glass-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle Inner Glow on Hover */
+        .glass-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .glass-card:hover::after { opacity: 1; }
 
         .btn-white {
             background: #fff;
             color: #000;
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: transform 0.2s, filter 0.2s;
         }
-
-        .code-card {
-            background: #050505;
-            border: 1px solid #141414;
-            border-radius: 10px;
-        }
-
-        .tok-k { color: #a78bfa; }
-        .tok-s { color: #4ade80; }
+        .btn-white:hover { transform: translateY(-1px); filter: brightness(0.9); }
     </style>
 </head>
-<body>
-    <div class="glow-overlay"></div>
+<body class="hero-glow">
+    <div class="beam"></div>
 
-    <nav class="flex items-center justify-between px-8 py-8 max-w-7xl mx-auto">
+    <nav class="flex items-center justify-between px-10 py-8 max-w-[1400px] mx-auto">
         <div class="flex items-center gap-4">
-            <div class="w-2 h-6 bg-white"></div>
+            <svg width="24" height="24" viewBox="0 0 256 256" fill="white"><path d="M128 0L256 128L128 256L0 128L128 0Z"/></svg>
             <span class="text-xl font-bold tracking-tighter">LINED</span>
         </div>
-        <div class="flex items-center gap-8">
-            <a href="https://github.com/linedhq/Lined" class="text-[13px] text-zinc-500 hover:text-white transition">GitHub</a>
-            <a href="YOUR_EXE_LINK_HERE" class="btn-white">Download</a>
+        <div class="flex items-center gap-8 text-[13px] font-medium text-zinc-500">
+            <a href="https://github.com/linedhq/Lined" class="hover:text-white transition">GitHub</a>
+            <a href="YOUR_EXE_LINK" class="btn-white">Download</a>
         </div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-8 pt-24 pb-40">
-        <div class="max-w-3xl">
-            <h1 class="serif text-[clamp(50px,8vw,90px)] leading-[0.9] tracking-tight mb-8">
-                The Discord clone<br/><span class="text-zinc-500">for builders.</span>
-            </h1>
-            <p class="text-zinc-400 text-xl leading-relaxed mb-10 max-w-lg">
-                A high-performance communication tool. No bloat, no tracking, just a clean UI, no messy things.
-            </p>
-            <div class="flex items-center gap-4">
-                <a href="YOUR_EXE_LINK_HERE" class="bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold hover:bg-zinc-200 transition">
-                    Download .exe
-                </a>
-                <a href="https://github.com/linedhq/Lined" class="text-zinc-500 hover:text-white text-sm font-medium px-4 py-3 transition">
-                    View Source Code
-                </a>
+    <header class="max-w-[1400px] mx-auto px-10 pt-32 pb-48">
+        <div class="max-row flex flex-col lg:flex-row gap-20 items-center">
+            <div class="flex-1">
+                <h1 class="serif text-[clamp(60px,10vw,100px)] leading-[0.9] tracking-tight mb-8">
+                    Chat for<br/><span class="text-zinc-500">developers</span>
+                </h1>
+                <p class="text-zinc-400 text-xl leading-relaxed mb-12 max-w-lg">
+                    A high-performance messaging app. Built with the point of having pure privacy.
+                </p>
+                <div class="flex gap-4">
+                    <a href="YOUR_EXE_LINK" class="btn-white">Download for Windows</a>
+                    <a href="https://github.com/linedhq/Lined" class="px-6 py-3 text-zinc-400 hover:text-white transition text-sm font-medium">
+                        View Source Code &rarr;
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex-1 w-full lg:w-auto">
+                <div class="glass-card p-4 shadow-2xl scale-105 rotate-1">
+                    <div class="flex gap-2 mb-4">
+                        <div class="w-2.5 h-2.5 rounded-full bg-zinc-800"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-zinc-800"></div>
+                    </div>
+                    <div class="bg-black/40 rounded-lg aspect-video flex items-center justify-center border border-white/5">
+                        <span class="text-zinc-700 text-xs font-mono uppercase tracking-[0.2em]">App Preview</span>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="border-t border-zinc-900 bg-black py-32">
-        <div class="max-w-4xl mx-auto px-8 text-center">
-            <h2 class="text-4xl font-medium tracking-tight mb-6">
-                Simple <span class="serif italic font-normal text-purple-400">by design</span>
-            </h2>
-            <p class="text-zinc-500 text-lg mb-16 max-w-md mx-auto">
-                Built with a modern tech stack to ensure the fastest possible chat experience.
-            </p>
+    <section class="border-t border-zinc-900 bg-black pt-32 pb-48">
+        <div class="max-w-7xl mx-auto px-10 text-center">
+            <h2 class="text-5xl font-medium tracking-tight mb-6">Everything in <span class="serif italic font-normal text-zinc-400">your control</span></h2>
+            <p class="text-zinc-500 text-lg mb-20 max-w-lg mx-auto">All the features you need to manage your communities, without the messy stuff.</p>
 
-            <div class="code-card text-left">
-                <div class="flex items-center gap-3 px-6 py-4 border-b border-zinc-900">
-                    <div class="w-3 h-3 rounded-full bg-zinc-800"></div>
-                    <span class="text-[12px] font-medium text-zinc-500">lined-app-config.json</span>
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="glass-card p-8 group">
+                    <div class="w-10 h-10 bg-white/5 rounded-lg mb-6 border border-white/10 flex items-center justify-center group-hover:border-white/20 transition">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3 class="font-medium mb-3">Instant Speed</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">Sub-100ms message delivery and instant guild switching. No more waiting for Electron to catch up.</p>
                 </div>
-                <div class="p-8 font-mono text-[14px] leading-relaxed">
-                    {<br>
-                    &nbsp;&nbsp;<span class="tok-k">"app_name"</span>: <span class="tok-s">"Lined"</span>,<br>
-                    &nbsp;&nbsp;<span class="tok-k">"version"</span>: <span class="tok-s">"0.1.0-alpha"</span>,<br>
-                    &nbsp;&nbsp;<span class="tok-k">"license"</span>: <span class="tok-s">"MIT"</span>,<br>
-                    &nbsp;&nbsp;<span class="tok-k">"features"</span>: [<span class="tok-s">"Direct Messages"</span>, <span class="tok-s">"Guilds"</span>, <span class="tok-s">"Speed"</span>]<br>
-                    }
+
+                <div class="glass-card p-8 group">
+                    <div class="w-10 h-10 bg-white/5 rounded-lg mb-6 border border-white/10 flex items-center justify-center group-hover:border-white/20 transition">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="font-medium mb-3">Total Privacy</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">No tracking, no telemetry, no "active status" spying. Just your messages, stored securely.</p>
+                </div>
+
+                <div class="glass-card p-8 group">
+                    <div class="w-10 h-10 bg-white/5 rounded-lg mb-6 border border-white/10 flex items-center justify-center group-hover:border-white/20 transition">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h3 class="font-medium mb-3">Zero Cost</h3>
+                    <p class="text-sm text-zinc-500 leading-relaxed">No paywalls for basic features. Enjoy high-quality streaming and large file uploads for free.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 border-t border-zinc-900 text-center text-zinc-600 text-[12px]">
-        &copy; 2026 Linedhq &bull; <a href="https://github.com/linedhq/Lined" class="hover:text-white">GitHub</a>
+    <footer class="py-20 border-t border-zinc-900 text-center bg-black">
+        <p class="text-zinc-600 text-xs tracking-widest uppercase">Open Source under MIT License</p>
     </footer>
+
+    <script>
+        // Micro-interaction: Border Glow following mouse
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+            });
+        });
+    </script>
 </body>
 </html>
