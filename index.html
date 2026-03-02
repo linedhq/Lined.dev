@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lined — Less noise, more signal.</title>
+    
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root { font-family: 'Inter', sans-serif; }
+        @supports (font-variation-settings: normal) {
+            :root { font-family: 'Inter var', sans-serif; }
+        }
+        
+        body {
+            background-color: #000;
+            color: #fafafa;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .gradient-mesh {
+            background-image: radial-gradient(at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 60%);
+        }
+
+        .border-white-8 { border-color: rgba(255, 255, 255, 0.08); }
+        
+        /* Glass effect for cards */
+        .glass {
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .download-btn {
+            background: #fff;
+            color: #000;
+            transition: all 0.15s ease-in-out;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="gradient-mesh">
+
+    <nav class="max-w-[1200px] mx-auto flex justify-between items-center py-8 px-6">
+        <div class="flex items-center gap-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M5 6h14M5 18h14"/></svg>
+            <span class="font-semibold tracking-tight text-lg">Lined</span>
+        </div>
+        
+        <div class="hidden sm:flex gap-10 text-[13px] text-zinc-500 font-medium">
+            <a href="https://github.com/linedhq/Lined" class="hover:text-white">Documentation</a>
+            <a href="https://github.com/linedhq/Lined" class="hover:text-white">GitHub</a>
+            <a href="#" class="hover:text-white">Changelog</a>
+        </div>
+
+        <a href="YOUR_LINK_HERE" class="download-btn px-4 py-1.5 rounded text-[13px] font-semibold">
+            Download
+        </a>
+    </nav>
+
+    <main class="max-w-[1200px] mx-auto px-6 pt-24">
+        <div class="max-w-3xl">
+            <div class="inline-block px-3 py-1 rounded-full border border-white-8 text-[11px] font-medium text-zinc-400 uppercase tracking-widest mb-6">
+                Now in Public Alpha
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter leading-[1.1] mb-8">
+                The communication <br/>tool for builders.
+            </h1>
+            
+            <p class="text-zinc-400 text-lg md:text-xl max-w-xl leading-relaxed mb-10">
+                Lined is a lightweight, high-performance Discord clone built for speed. No trackers, no bloated features, just your communities in a clean interface.
+            </p>
+
+            <div class="flex gap-4">
+                <a href="YOUR_EXE_LINK" class="download-btn px-6 py-3 rounded text-sm font-bold">
+                    Download for Windows
+                </a>
+                <a href="#features" class="glass px-6 py-3 rounded text-sm font-medium hover:bg-white/[0.03]">
+                    Explore features
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-24 rounded-xl glass p-2">
+            <div class="aspect-video bg-zinc-900 rounded-lg overflow-hidden border border-white-8 flex items-center justify-center">
+                <p class="text-zinc-700 text-sm italic">[ Drop your app screenshot here ]</p>
+            </div>
+        </div>
+
+        <div id="features" class="grid grid-cols-1 md:grid-cols-3 gap-6 py-32">
+            <div class="p-8 glass rounded-2xl">
+                <div class="text-white mb-4 italic">01</div>
+                <h3 class="text-white font-medium mb-2">Fast by default</h3>
+                <p class="text-zinc-500 text-sm leading-6">Engineered for sub-100ms interactions. Navigating servers shouldn't feel like loading a heavy website.</p>
+            </div>
+
+            <div class="p-8 glass rounded-2xl">
+                <div class="text-white mb-4 italic">02</div>
+                <h3 class="text-white font-medium mb-2">Minimalist UI</h3>
+                <p class="text-zinc-500 text-sm leading-6">Everything you need, nothing you don't. A distraction-free environment for deep work and gaming.</p>
+            </div>
+
+            <div class="p-8 glass rounded-2xl">
+                <div class="text-white mb-4 italic">03</div>
+                <h3 class="text-white font-medium mb-2">Open Source</h3>
+                <p class="text-zinc-500 text-sm leading-6">Transparent and community-driven. Built on modern tech stacks so you can audit the code yourself.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-20 border-t border-white-8 text-center">
+        <p class="text-zinc-600 text-xs">Built by LinedHQ. License MIT.</p>
+    </footer>
+
+</body>
+</html>
